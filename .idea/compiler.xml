@@ -6,11 +6,11 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="RRR" />
+        <module name="RAgency" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="RRR" target="1.8" />
+      <module name="RAgency" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>

@@ -1,4 +1,4 @@
-package com.epam.rrr.db;
+package com.epam.ragency.db;
 
 public class DBManager {
     private static String connectionUrl;
@@ -8,7 +8,7 @@ public class DBManager {
         DBManager.connectionUrl = connectionUrl;
     }
 
-    private DBManager() {
+    /*private DBManager() {
         try(FileReader reader = new FileReader("app.properties");) {
             Properties p = new Properties();
             p.load(reader);
@@ -32,5 +32,5 @@ public class DBManager {
             System.err.println(e.getMessage());
         }
         return connection;
-    }
+    }*/
 }
