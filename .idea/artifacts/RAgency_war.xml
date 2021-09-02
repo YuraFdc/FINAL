@@ -9,7 +9,7 @@
         <unpackNestedArchives>false</unpackNestedArchives>
       </options>
     </properties>
-    <root id="archive" name="RRR-1.0-SNAPSHOT.war">
+    <root id="archive" name="RAgency-1.0-SNAPSHOT.war">
       <element id="artifact" artifact-name="RAgency:war exploded" />
     </root>
   </artifact>

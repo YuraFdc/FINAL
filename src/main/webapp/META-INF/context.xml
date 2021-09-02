@@ -6,5 +6,5 @@
 
               username="root" password="123456"
               driverClassName="com.mysql.jdbc.Driver"
-              url="jdbc:mysql://localhost:3306/repair_agency/"/>
+              url="jdbc:mysql://localhost:3306/repair_agency?autoReconnect=true"/>
 </Context>

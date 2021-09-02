@@ -7,7 +7,7 @@ public class Application implements Serializable {
     private int userId;
     private int masterId;
     private float price;
-    private int status_id;
+    private int statusId;
 
     public int getId() {
         return id;
@@ -41,12 +41,12 @@ public class Application implements Serializable {
         this.price = price;
     }
 
-    public int getStatus_id() {
-        return status_id;
+    public int getStatusId() {
+        return statusId;
     }
 
-    public void setStatus_id(int status_id) {
-        this.status_id = status_id;
+    public void setStatusId(int statusId) {
+        this.statusId = statusId;
     }
 
     @Override
@@ -55,6 +55,6 @@ public class Application implements Serializable {
                 "\tuserId = " + userId + System.lineSeparator() +
                 "\tmasterId = " + masterId + System.lineSeparator() +
                 "\tprice = " + price + System.lineSeparator() +
-                "\tstatus_id=" + status_id;
+                "\tstatusId=" + statusId;
     }
 }
