@@ -11,7 +11,7 @@ public class DBManager {
     private static DBManager instance;
     private DBManager(){}
 
-    private static DBManager getInstance() {
+    public static DBManager getInstance() {
         if (instance==null)
             instance = new DBManager();
         return instance;
