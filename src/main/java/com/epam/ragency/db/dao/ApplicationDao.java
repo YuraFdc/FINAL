@@ -4,10 +4,7 @@ import com.epam.ragency.db.Constants;
 import com.epam.ragency.db.DBManager;
 import com.epam.ragency.db.entity.Application;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,15 +18,15 @@ public class ApplicationDao {
         Connection connection = null;
         try {
             connection = DBManager.getInstance().getConnection();
+            ApplicationMapper mapper = new ApplicationMapper();
             statement = connection.prepareStatement(Constants.GET_ALL_APPLICATIONS);
             resultSet = statement.executeQuery();
             while (resultSet.next()) {
-
+                applications.add(mapper.mapRow(resultSet));
             }
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
-
         return applications;
     }
 
@@ -39,16 +36,17 @@ public class ApplicationDao {
         public Application mapRow(ResultSet rs) {
             try {
                 Application application = new Application();
-                application.setId(rs.getInt(Constants.ID_APPLICATION));
 
-                user.setId(rs.getLong(Fields.ENTITY__ID));
-                user.setLogin(rs.getString(Fields.USER__LOGIN));
-                user.setPassword(rs.getString(Fields.USER__PASSWORD));
-                user.setFirstName(rs.getString(Fields.USER__FIRST_NAME));
-                user.setLastName(rs.getString(Fields.USER__LAST_NAME));
-                user.setLocaleName(rs.getString(Fields.USER__LOCALE_NAME));
-                user.setRoleId(rs.getInt(Fields.USER__ROLE_ID));
-                return user;
+                application.setId(rs.getInt(Constants.ID_APPLICATION));
+                application.setCreationDate(rs.getDate(Constants.CREATION_DATE));
+                application.setUserId(rs.getInt(Constants.USER_ID));
+                application.setDescription(rs.getString(Constants.DESCRIPTION));
+                application.setUserId(rs.getInt(Constants.MASTER_ID));
+                application.setPrice(rs.getFloat(Constants.PRICE));
+                application.setStatusId(rs.getInt(Constants.STATUS_ID));
+                application.setResponse(rs.getString(Constants.RESPONSE));
+
+                return application;
             } catch (SQLException e) {
                 throw new IllegalStateException(e);
             }

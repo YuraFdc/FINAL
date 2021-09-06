@@ -20,12 +20,18 @@ public class DBManager {
     public Connection getConnection() throws SQLException {
         Connection con = null;
         try {
+            System.out.println("IN");
             Context initContext = new InitialContext();
+            System.out.println("1");
             Context envContext  = (Context)initContext.lookup("java:/comp/env");
+            System.out.println("2");
 
-            // Repair - the name of data source
+            // ST4DB - the name of data source
             DataSource ds = (DataSource)envContext.lookup("jdbc/Repair");
+            System.out.println("3");
             con = ds.getConnection();
+
+            System.out.println("SUCCESSFUL CONNECTION");
         } catch (NamingException e) {
             e.printStackTrace();
         }
